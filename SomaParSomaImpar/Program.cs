@@ -4,7 +4,6 @@ internal class Program
     private static void Main(string[] args)
     {
         int soma_par, soma_impar, numero;
-
         soma_par = 0;
         soma_impar = 0;
 
