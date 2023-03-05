@@ -1,38 +1,59 @@
-﻿// SomaParImpar
-internal class Program
+﻿internal class Program
 {
     private static void Main(string[] args)
     {
-        int soma_par, soma_impar, numero;
-        soma_par = 0;
-        soma_impar = 0;
+        int somaPar = 0, somaImpar = 0, numero, indice = 1;
+        bool verifica;
 
-        Console.WriteLine("Digite um número");
-        numero = int.Parse(Console.ReadLine());
-
-        while(numero < 1000)
+        void Entrada()
         {
-            if(numero % 2 == 0)
-            {
-                soma_par += numero;
-            }
-            else
-            {
-                soma_impar += numero;
-            }
-
-            Console.WriteLine("Digite um número");
+            Console.WriteLine("ENTRE COM " + indice + " º NÚMERO");
             numero = int.Parse(Console.ReadLine());
+            indice++;
         }
 
-        if (soma_impar == 0 && soma_par == 0)
+        void verificaParImpar()
         {
-            Console.WriteLine("Nenhum número menor que 1000 foi digitado !");
+            verifica = false;
+            if (numero % 2 == 0)
+            {
+                verifica = true;
+            }
         }
-        else
+
+        void Iteracao()
         {
-            Console.WriteLine("Soma dos números pares: " + soma_par);
-            Console.WriteLine("Soma dos números ímpares: " + soma_impar);
+            int indice = 0;
+            Entrada();
+            while (numero < 1000)
+            {
+                verificaParImpar();
+                if (verifica)
+                {
+                    somaPar += numero;
+                }
+                else
+                {
+                    somaImpar += numero;
+                }
+
+                indice++;
+                Entrada();
+            }
         }
+
+        void ExibirSomaPar()
+        {
+            Console.WriteLine("A SOMA DOS NÚMEROS DOS NÚMEROS PARES É " + somaPar);
+        }
+        void ExibirSomaImpar()
+        {
+            Console.WriteLine("A SOMA DOS NÚMEROS DOS NÚMEROS PARES É " + somaImpar);
+        }
+
+        Iteracao();
+        ExibirSomaPar();
+        ExibirSomaImpar();
+
     }
 }
